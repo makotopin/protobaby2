@@ -1,0 +1,9 @@
+<h1>マイページindex</h1>
+<% @baby.each do |baby|%>
+<%= image_tag baby.image.variant(resize: '300x300') %>
+<%= baby.name %>
+<%= baby.gender.name %>
+<%= baby.birthday %>
+<%= link_to "子ども編集", edit_baby_path(baby) %>
+<% end %>
+<%= link_to "戻る", root_path %>

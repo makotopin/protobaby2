@@ -1,0 +1,15 @@
+
+<h1>トップページshow</h1>
+<% if user_signed_in? %>
+  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+  <%= link_to "マイページ", babies_path %>
+  <%= link_to "子ども新規登録", new_baby_path %>
+  <%= link_to "子ども編集", edit_baby_path(@baby)%>
+<% else %>
+  <%= link_to "新規登録", new_user_registration_path %>
+  <%= link_to "ログイン", new_user_session_path %>
+<% end %>
+
+<%= image_tag @baby.image.variant(resize: '300x300') %>
+<%= @baby.name %>
+<%= @babybirth %>
