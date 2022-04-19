@@ -1,9 +1,41 @@
-<h1>マイページindex</h1>
-<% @baby.each do |baby|%>
-<%= image_tag baby.image.variant(resize: '300x300') %>
-<%= baby.name %>
-<%= baby.gender.name %>
-<%= baby.birthday %>
-<%= link_to "子ども編集", edit_baby_path(baby) %>
-<% end %>
-<%= link_to "戻る", root_path %>
+<header>
+  <div class="header">
+    <div class="header-logo">
+      <%= link_to "Logo", root_path, class:"logo" %>
+    </div>
+    <div class="header-parts">
+      <% if user_signed_in? %>
+        <%= link_to "New Baby", new_baby_path, class:"header-part" %>
+        <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"header-part" %>
+      <% else %>
+        <%= link_to "New Registration", new_user_registration_path, class:"header-part" %>
+        <%= link_to "Log In", new_user_session_path, class:"header-part" %>
+      <% end %>
+    </div>
+  </div >
+</header>
+<main>
+  <p class="yourbabies">~YOUR BABIES~</p>
+  <div class="babies">
+      <% @baby.each do |baby|%>
+        <div class="baby-card">
+          <a class="babyshowlink" href="/babies/<%= baby.id %>" ></a>
+          <div>
+            <%= image_tag baby.image.variant(resize: '300x300'), class:"baby-image" %>
+          </div>
+          <div class="baby-info">
+            <p>おなまえ：<%= baby.name %></p>
+            <p>せいべつ：<%= baby.gender.name %></p>
+            <p>おたんじょうび：<%= baby.birthday %></p>
+            <p class="edit-button">
+              <%= link_to "編集する", edit_baby_path(baby), class:"edit" %>
+            </p>
+            <p></p>
+          </div>
+        </div>
+      <% end %>
+  </div>
+</main>
+<footer>
+  ここがフッター
+</footer>

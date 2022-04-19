@@ -1,0 +1,46 @@
+/* ヘッダー部分 ここから */
+.header {
+  background-color: thistle;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  font-family: cursive;
+  border-bottom: 2px solid lightgray;
+}
+
+.header-logo {
+  font-size: 40px;
+}
+
+.logo {
+  text-decoration: none;
+  color: powderblue;
+}
+
+.header-parts {
+  font-family: cursive;
+  font-size: 40px;
+}
+
+.header-part {
+  text-decoration: none;
+  color: gray;
+  padding: 0 30px;
+}
+
+.monthes {
+  display: flex;
+  text-align: center;
+}
+
+.month {
+  margin-left: 20px;
+}
+/* ヘッダー部分 ここまで */
+
+/* メインここから */
+main {
+  height: calc(100vh - 130px);
+  font-family: Hannotate SC;
+  text-align: center;
+}

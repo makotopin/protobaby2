@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "babies#show"
+  root to: "babies#index"
   resources :babies
 end
 

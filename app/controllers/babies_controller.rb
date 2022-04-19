@@ -17,7 +17,7 @@ class BabiesController < ApplicationController
   end
 
   def show
-    @baby = Baby.find(2)
+    @baby = Baby.find(params[:id])
     @babybirth = @baby.birthday
   end
 
