@@ -1,48 +1,71 @@
-## usersテーブル
+# アプリケーション名
+SUKU-SUKU
 
-| Column    | Type   | Options     |
-| --------- | ------ | ----------- |
-| email     | string | null: false |
-| password  | string | null: false |
+# アプリケーション概要
+子どもの予防接種の時期が一目で分かる。
 
-### Association
-- has_many :babies
+# URL
+https://protobaby2.herokuapp.com/
 
+# テスト用アカウント
+・Basic認証ID：未設定（設定予定）
+・Basic認証パスワード：未設定（設定予定）
+・メールアドレス：aaa@aaa
+・パスワード：aaaaaa
 
-## babiesテーブル
+# 利用方法
+ # 子どもの登録
+ 1,トップページのヘッダーからユーザーの新規登録を行う。
+ 2,ヘッダーの”New Baby”から子どもの情報（名前・性別・誕生日）を登録する。
+ 3,トップページに登録した子どもが一覧表示される。
+ # 子どもの詳細確認と編集、削除
+ 1,トップページの子どものカードをクリックして詳細ページに遷移する。
+ 2,詳細ページでは登録した子どもの情報と病院の情報を確認できる。
+ 3,トップページから各子どものカードの下に位置する「編集する」を押すと編集ページにて、内容の変更と子どもの削除ができる。
 
-| Column   | Type       | Options                        |
-| -------- | ---------- | ------------------------------ |
-| name     | string     | null: false                    |
-| gender   | integer    | null: false                    |
-| birthday | date       | null: false                    |
-| user     | references | null: false, foreign_key: true |
+# アプリケーションを作成した背景
+子どもの予防接種は10種類近くのワクチンを一定期間を空けつつ繰り返し打たなくてはいけません。しかもワクチンの種類によって、空けなくてはならない間隔・摂取回数もバラバラになっており、非常に管理しにくいです。また、数ヶ月・数年の単位の期間を管理するとなると、どうしても記憶から抜けてしまう事が多いためその点も課題です。私自身子供が産まれてから、予防接種の管理がしづらいと感じていました。
+予防接種の摂取時期を管理しエクレるアプリケーションはいくつか存在しますが、病院情報と紐づいているものはほとんどなく、いざ予定を立て始める時には、別でブラウザを開いて毎回病院の情報を調べ直さなければならないのは手間でした。そこで、それらの課題を解決できるアプリケーションを開発することにしました。
+ 
+# 洗い出した要件
+[要件を定義したシート（提出後URLを設定）](URL)
 
-### Association
-- belongs_to :user
-- has_one :memo
-- has_one :hospital
+# 実装予定の機能
+現在、病院情報を入力・表示できるように実装中。
+その後テストを行いたいと思います。
+今後は
+・LINE APIを利用し、摂取時期が近づいてきた時に通知を送ってくれる機能
+・GoogleマップのAPIを利用し、病院の地図を表示できる機能
+・JavaScriptを利用し、ワクチンの接種済み・未接種をその場のクリック（タップ）で変更できるようにする機能
+・その他UI・セキュリティの向上
+を実装予定です。
+# データベース設計
+[![Image from Gyazo](https://i.gyazo.com/4c34278149624b9f3ee8c15bf013c361.png)](https://gyazo.com/4c34278149624b9f3ee8c15bf013c361)
 
+# 画面遷移図
+[![Image from Gyazo](https://i.gyazo.com/19df66badc9c524b27dbd9d334447aa4.png)](https://gyazo.com/19df66badc9c524b27dbd9d334447aa4)
 
-## memoテーブル
+# 開発環境
+・バックエンド
+　Ruby
+　Ruby on Rails
+・フロントエンド
+　HTML/CSS
+・データベース
+　MySQL
+・テキストエディタ
+　Visual Studio Code
 
-| Column   | Type       | Options                        |
-| -------- | ---------- | ------------------------------ |
-| content  | string     |                                |
-| baby     | references | null: false, foreign_key: true |
+# ローカルでの動作方法
+以下のコマンドを順に実行
+% git clone https://github.com/protobaby2.git
+% cd protobaby2 
+% bundle install
+% yarn install
 
-## Association
-- belongs_to :baby
-
-
-## hospitalテーブル
-
-| Column   | Type       | Options                        |
-| -------- | ---------- | ------------------------------ |
-| hospital | string     |                                |
-| week     | string     |                                |
-| map      | text       |                                |
-| baby     | references | null: false, foreign_key: true |
-
-## Association
-- belongs_to :baby
+# 工夫したポイント
+とにかく、ペルソナの抱える課題を解決することだけを考えてkっ開発を進めています。
+この手のアプリケーションは頻繁に開くことを想定するものではなく、然る時期に確認のために開くようなアプリケーションです。
+なので瞬時に必要な情報の確認ができるよう、とにかく必要な機能だけを実装することに注力しました。
+また病院の情報がある方が良いという点は、小さなこどもをもつ保護者の方（ペルソナ）に実際に話を聞いて、需要があることを確認して実装しています。
+今後の追加実装における各機能も、基本的には「最初の登録に応じて通知がくる」「瞬時に、視覚的に欲しい情報がわかる・編集できる」という部分を意識して実装していきたいと考えています。
