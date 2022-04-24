@@ -1,54 +1,49 @@
-<header>
-  <div class="header">
-    <div class="header-logo">
-      <%= link_to "Logo", root_path, class:"logo" %>
-    </div>
-    <div class="header-parts">
-      <% if user_signed_in? %>
-        <%= link_to "New Baby", new_baby_path, class:"header-part" %>
-        <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"header-part" %>
-      <% else %>
-        <%= link_to "New Registration", new_user_registration_path, class:"header-part" %>
-        <%= link_to "Log In", new_user_session_path, class:"header-part" %>
-      <% end %>
-    </div>
-  </div >
-</header>
-
+<%= render "babies/header" %>
 <main>
-<h1>子どもの編集ページ</h1>
-
-<%= form_with model: @baby, local: true do |f| %>
-<%= render 'error_messages', model: f.object %>
-
-<p>画像</p>
-<%= f.file_field :image, id:"baby-image" %>
-<p>名前</p>
-<%= f.text_area :name, class:"baby-text", id:"baby-name", placeholder:"おなまえ" %>
-<p>性別</p>
-<%= f.collection_select(:gender_id, Gender.all, :id, :name, {}, {class:"gender-select"}) %>
-<p>生年月日</p>
-<div class='input-birth-wrap'>
-      <%= raw sprintf(
-                  f.date_select(
-                    :birthday,
-                    class:'select-birth',
-                    id:"birth-date",
-                    use_month_numbers: true,
-                    prompt:'--',
-                    start_year: 2015,
-                    end_year: (Time.now.year + 1),
-                    date_separator: '%s'),
-                  "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
-
-
-<%= f.submit "登録" ,class:"btn" %>
-<%= link_to "削除"  %>
-<%= link_to "戻る", root_path %>
-
-
-<% end %>
+  <div class="main">
+    <div class="e-contents">
+      <div>
+        <h1>子どもの編集ページ</h1>
+      </div>
+      <div class="e-form">
+        <%= form_with model: @baby, local: true do |f| %>
+          <%= render 'error_messages', model: f.object %>
+          <div clsss="image-wrapper">
+            <p>画像</p>
+            <p><%= f.file_field :image, id:"baby-image" %></p>
+          </div>
+          <div class="name-wrapper">
+            <p>名前</p>
+            <%= f.text_area :name, class:"baby-text", id:"baby-name", placeholder:"おなまえ" %>
+          </div>
+          <div class="gender-wrapper">
+            <p>性別</p>
+            <%= f.collection_select(:gender_id, Gender.all, :id, :name, {}, {class:"gender-select"}) %>
+          </div>
+          <div class="birthday-wrapper">
+            <p>生年月日</p>
+            <div class='input-birth-wrap'>
+                  <%= raw sprintf(
+                              f.date_select(
+                                :birthday,
+                                class:'select-birth',
+                                id:"birth-date",
+                                use_month_numbers: true,
+                                prompt:'--',
+                                start_year: 2015,
+                                end_year: (Time.now.year + 1),
+                                date_separator: '%s'),
+                              "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+            </div>
+          </div>
+          <div class="e-button">
+            <%= f.submit "登録" ,class:"e-submit" %>
+            <%= link_to "戻る", root_path, class:"e-link" %>
+            <%= link_to "削除", baby_path(@baby), method: :delete, class:"e-delete" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </main>
-<footer>
-  ここがフッター
-</footer>
+<%= render "babies/footer"%>

@@ -17,3 +17,61 @@
 * {
   box-sizing: border-box;
 }
+
+/* ヘッダー部分 ここから */
+.header {
+  background-color: #f9bcdd;
+  height: 85px;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: cursive;
+  border-bottom: 2px solid lightgray;
+  position: fixed;
+  top: 0;
+}
+
+.header-part {
+  text-decoration: none;
+  color: #a97ce1;
+  padding: 0 30px;
+  font-size: 40px;
+}
+
+.header-part:hover {
+  color: #8ac6d1;
+}
+/* ヘッダー部分 ここまで */
+
+/* メインここから */
+.main {
+  height: calc(100vh - 155px);
+  width: 100vw;
+  font-family: Hannotate SC;
+  margin-top: 85px;
+  position: fixed;
+
+}
+/* メイン ここまで */
+
+/* フッター部分 ここから */
+footer {
+  width: 100vw;
+  height: 70px;
+  background-color: #f9bcdd;
+  border-top: 2px solid lightgray;
+  position: fixed;
+  bottom: 0;
+}
+
+.logout {
+  font-family: cursive;
+  font-size: 20px;
+  text-decoration: none;
+  color: #a97ce1;
+  float: right;
+  margin: 20px 20px;
+
+}
+/* フッター部分 ここまで */

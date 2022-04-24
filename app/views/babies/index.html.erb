@@ -1,41 +1,32 @@
-<header>
-  <div class="header">
-    <div class="header-logo">
-      <%= link_to "Logo", root_path, class:"logo" %>
-    </div>
-    <div class="header-parts">
-      <% if user_signed_in? %>
-        <%= link_to "New Baby", new_baby_path, class:"header-part" %>
-        <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"header-part" %>
-      <% else %>
-        <%= link_to "New Registration", new_user_registration_path, class:"header-part" %>
-        <%= link_to "Log In", new_user_session_path, class:"header-part" %>
-      <% end %>
-    </div>
-  </div >
-</header>
-<main>
-  <p class="yourbabies">~YOUR BABIES~</p>
-  <div class="babies">
-      <% @baby.each do |baby|%>
-        <div class="baby-card">
-          <a class="babyshowlink" href="/babies/<%= baby.id %>" ></a>
-          <div>
-            <%= image_tag baby.image.variant(resize: '300x300'), class:"baby-image" %>
-          </div>
-          <div class="baby-info">
-            <p>おなまえ：<%= baby.name %></p>
-            <p>せいべつ：<%= baby.gender.name %></p>
-            <p>おたんじょうび：<%= baby.birthday %></p>
-            <p class="edit-button">
-              <%= link_to "編集する", edit_baby_path(baby), class:"edit" %>
-            </p>
-            <p></p>
+<%= render "babies/header" %>
+<main class="main">
+  <div class="i-yourbabies">
+    <p>~YOUR BABIES~</p>
+  </div>
+  <div class="i-cards-wrapper">
+    <div class="i-cards">
+      <% @baby.each do |baby| %>
+        <div class="i-card">
+          <a href="/babies/<%= baby.id %>" class="i-showlink">
+            <div class="i-card-contents">
+              <div class="i-baby-image">
+                <%= image_tag baby.image, class:"i-baby-image" %>
+              </div>
+              <div class="i-baby-info">
+                <p>おなまえ：<%= baby.name %></p>
+                <p>せいべつ：<%= baby.gender.name %></p>
+                <p>おたんじょうび：<%= baby.birthday %></p>
+              </div>
+            </div>
+          </a>
+          <div class="i-baby-edit">
+            <div class="i-edit-button">
+              <%= link_to "編集する", edit_baby_path(baby), class:"i-edit" %>
+            </div>
           </div>
         </div>
       <% end %>
+    </div>
   </div>
 </main>
-<footer>
-  ここがフッター
-</footer>
+<%= render "babies/footer"%>

@@ -34,6 +34,14 @@ class BabiesController < ApplicationController
     end
   end
 
+  def destroy
+    baby = Baby.find(params[:id])
+    if user_signed_in? && current_user.id == baby.user_id
+      baby.destroy
+      redirect_to root_path
+    end
+  end
+
   private
 
   def baby_params

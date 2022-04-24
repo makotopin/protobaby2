@@ -20,3 +20,29 @@
 
 ### Association
 - belongs_to :user
+- has_one :memo
+- has_one :hospital
+
+
+## memoテーブル
+
+| Column   | Type       | Options                        |
+| -------- | ---------- | ------------------------------ |
+| content  | string     |                                |
+| baby     | references | null: false, foreign_key: true |
+
+## Association
+- belongs_to :baby
+
+
+## hospitalテーブル
+
+| Column   | Type       | Options                        |
+| -------- | ---------- | ------------------------------ |
+| hospital | string     |                                |
+| week     | string     |                                |
+| map      | text       |                                |
+| baby     | references | null: false, foreign_key: true |
+
+## Association
+- belongs_to :baby

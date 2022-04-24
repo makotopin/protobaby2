@@ -1,123 +1,344 @@
-<header>
-  <div class="header">
-    <div class="header-logo">
-      <%= link_to "Logo", root_path, class:"logo" %>
+<%= render "babies/header" %>
+<main class="main">
+  <div class="show-wrapper">
+    <div class="s-baby-data">
+      <div class="s-baby-card">
+        <div class="s-baby-image">
+          <%= image_tag @baby.image.variant(resize: '250x250'), class:"s-image" %>
+        </div>
+        <div class="s-baby-info">
+          <p>おなまえ: <%= @baby.name %></p>
+          <p>せいべつ: <%= @baby.gender.name %></p>
+          <p>おたんじょうび: <%= @babybirth %></p>
+        </div>
+      </div>
+      <div class="s-hospital">
+        <span class="box-title">〜病院情報〜</span>
+        <% if %>
+          <p>・ここに文章が入ります</p>
+          <p>・ここに文章が入ります</p>
+          <p><%= link_to "ここに地図のURLが載ります", "#", class:"" %></p>
+        <% else %>
+        <% end %>
+      </div>
+      <div class="s-memo">
+        <span class="box-title">〜MEMO〜</span>
+        <p>ここに文章が入ります</p>
+      </div>
     </div>
-    <div class="header-parts">
-      <% if user_signed_in? %>
-        <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"header-part" %>
-        <%= link_to "My Page", babies_path, class:"header-part" %>
-        <%= link_to "New Baby", new_baby_path, class:"header-part" %>
-        <%= link_to "Baby Edit", edit_baby_path(@baby), class:"header-part" %>
-      <% else %>
-        <%= link_to "New Registration", new_user_registration_path, class:"header-part" %>
-        <%= link_to "Log In", new_user_session_path, class:"header-part" %>
-      <% end %>
+    <div class="s-table">
+      <table>
+      <tbody>
+        <tr>
+          <th class="fixed01 color2 z3">
+            <p></p>
+          </th>
+          <th class="fixed02 color2 z2">
+            <p>0ヶ月</p>
+            <p><%= "#{@baby.birthday}〜　" %></p>
+          </th>
+          <th class="fixed02 color2 z2">
+            <p>1ヶ月</p>
+            <p><%= "#{@baby.birthday>>1}〜　" %></p>
+          </th>
+          <th class="fixed02 color2 z2">
+            <p>2ヶ月</p>
+            <p><%= "#{@baby.birthday>>2}〜　" %></p>
+          </th>
+          <th class="fixed02 color2 z2">
+            <p>3ヶ月</p>
+            <p><%= "#{@baby.birthday>>3}〜　" %></p>
+          </th>
+          <th class="fixed02 color2 z2">
+            <p>4ヶ月</p>
+            <p><%= "#{@baby.birthday>>4}〜　" %></p>
+          </th>
+          <th class="fixed02 color2 z2">
+            <p>5ヶ月</p>
+            <p><%= "#{@baby.birthday>>5}〜　" %></p>
+          </th>
+          <th class="fixed02 color2 z2">
+            <p>6ヶ月</p>
+            <p><%= "#{@baby.birthday>>6}〜　" %></p>
+          </th>
+          <th class="fixed02 color2 z2">
+            <p>7ヶ月</p>
+            <p><%= "#{@baby.birthday>>7}〜　" %></p>
+          </th>
+          <th class="fixed02 color2 z2">
+            <p>8ヶ月</p>
+            <p><%= "#{@baby.birthday>>8}〜　" %></p>
+          </th>
+          <th class="fixed02 color2 z2">
+            <p>9ヶ月</p>
+            <p><%= "#{@baby.birthday>>9}〜　" %></p>
+          </th>
+          <th class="fixed02 color2 z2">
+            <p>10ヶ月</p>
+            <p><%= "#{@baby.birthday>>10}〜　" %></p>
+          </th>
+          <th class="fixed02 color2 z2">
+            <p>11ヶ月</p>
+            <p><%= "#{@baby.birthday>>11}〜　" %></p>
+          </th>
+          <th class="fixed02 color2 z2">
+            <p>12ヶ月</p>
+            <p><%= "#{@baby.birthday>>12}〜　" %></p>
+          </th>
+          <th class="fixed02 color2 z2">
+            <p>15ヶ月</p>
+            <p><%= "#{@baby.birthday>>15}〜　" %></p>
+          </th>
+          <th class="fixed02 color2 z2">
+            <p>18ヶ月</p>
+            <p><%= "#{@baby.birthday>>18}〜　" %></p>
+          </th>
+          <th class="fixed02 color2 z2">
+            <p>21ヶ月</p>
+            <p><%= "#{@baby.birthday>>21}〜　" %></p>
+          </th>
+          <th class="fixed02 color2 z2">
+            <p>24ヶ月</p>
+            <p><%= "#{@baby.birthday>>24}〜　" %></p>
+          </th>
+          <th class="fixed02 color2 z2">
+            <p>36ヶ月</p>
+            <p><%= "#{@baby.birthday>>36}〜　" %></p>
+          </th>
+          <th class="fixed02 color2 z2">
+            <p>48ヶ月</p>
+            <p><%= "#{@baby.birthday>>48}〜　" %></p>
+          </th>
+          <th class="fixed02 color2 z2">
+            <p>60ヶ月</p>
+            <p><%= "#{@baby.birthday>>60}〜　" %></p>
+          </th>
+        </tr>
+        <tr>
+          <th class="fixed02 color1">ヒブ</th>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1">①</td>
+          <td class="color1">②</td>
+          <td class="color1">③</td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1">④</td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+        </tr>
+        <tr>
+          <th class="fixed02 color2">小児肺炎球菌</th>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2">①</td>
+          <td class="color2">②</td>
+          <td class="color2">③</td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2">④</td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+        </tr>
+        <tr>
+          <th class="fixed02 color1">ロタウイルス（３回接種）</th>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1">①</td>
+          <td class="color1">②</td>
+          <td class="color1">③</td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+        </tr>
+        <tr>
+          <th class="fixed02 color2">四種混合</th>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2">①</td>
+          <td class="color2">②</td>
+          <td class="color2">③</td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2">④</td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+        </tr>
+        <tr>
+          <th class="fixed02 color1">B型肝炎</th>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1">①</td>
+          <td class="color1">②</td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1">③</td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+        </tr>
+        <tr>
+          <th class="fixed02 color2">BCG</th>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2">①</td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+        </tr>
+        <tr>
+          <th class="fixed02 color1">麻疹風疹混合</th>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1">①</td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+        </tr>
+        <tr>
+          <th class="fixed02 color2">水疱瘡</th>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2">①</td>
+          <td class="color2">②</td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+        </tr>
+        <tr>
+          <th class="fixed02 color1">日本脳炎</th>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1"></td>
+          <td class="color1">①②</td>
+          <td class="color1">③</td>
+          <td class="color1">※９歳で４回目</td>
+        </tr>
+        <tr>
+          <th class="fixed02 color2">おたふく風邪</th>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2">①</td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2"></td>
+          <td class="color2">②</td>
+        </tr>
+      </tbody>
+      </table>
     </div>
-  </div >
-</header>
-<main>
-  <div class>
-  <div class="baby-image">
-    <%= image_tag @baby.image.variant(resize: '250x250') %>
-  </div>
-    <div class="baby-info">
-      <p>おなまえ:<%= @baby.name %></p>
-      <p>おたんじょうび：<%= @babybirth %></p>
-    </div>
-  </div>
-  <div class="monthes">
-    <div class="month">
-      <p>0ヶ月</p>
-      <p><%= "#{@baby.birthday}" %></p>
-    </div>
-    <div class="month">
-      <p>1ヶ月</p>
-      <p><%= "#{@baby.birthday + 30}" %></p>
-    </div>
-    <div class="month">
-      <p>2ヶ月</p>
-      <p><%= "#{@baby.birthday + 60}" %></p>
-    </div>
-    <div class="month">
-      <p>3ヶ月</p>
-      <p>◯月△日</p>
-    </div>
-    <div class="month">
-      <p>4ヶ月</p>
-      <p>◯月△日</p>
-    </div>
-    <div class="month">
-      <p>5ヶ月</p>
-      <p>◯月△日</p>
-    </div>
-    <div class="month">
-      <p>6ヶ月</p>
-      <p>◯月△日</p>
-    </div>
-    <div class="month">
-      <p>7ヶ月</p>
-      <p>◯月△日</p>
-    </div>
-    <div class="month">
-      <p>8ヶ月</p>
-      <p>◯月△日</p>
-    </div>
-    <div class="month">
-      <p>9ヶ月</p>
-      <p>◯月△日</p>
-    </div>
-    <div class="month">
-      <p>10ヶ月</p>
-      <p>◯月△日</p>
-    </div>
-    <div class="month">
-      <p>11ヶ月</p>
-      <p>◯月△日</p>
-    </div>
-    <div class="month">
-      <p>12ヶ月</p>
-      <p>◯月△日</p>
-    </div>
-    <div class="month">
-      <p>15ヶ月</p>
-      <p>◯月△日</p>
-    </div>
-    <div class="month">
-      <p>18ヶ月</p>
-      <p>◯月△日</p>
-    </div>
-    <div class="month">
-      <p>21ヶ月</p>
-      <p>◯月△日</p>
-    </div>
-    <div class="month">
-      <p>24ヶ月</p>
-      <p>◯月△日</p>
-    </div>
-    <div class="month">
-      <p>36ヶ月</p>
-      <p>◯月△日</p>
-    </div>
-    <div class="month">
-      <p>48ヶ月</p>
-      <p>◯月△日</p>
-    </div>
-    <div class="month">
-      <p>60ヶ月</p>
-      <p>◯月△日</p>
-    </div>
-  </div>
-  <p>ヒブ</p>
-    <p>小児肺炎球菌</p>
-    <p>ロタウイルス（２回接種）</p>
-    <p>ロタウイルス（３回接種）</p>
-    <p>四種混合</p>
-    <p>BCG</p>
-    <p>麻疹風疹混合</p>
-    <p>水疱瘡</p>
-    <p>日本脳炎</p>
-    <p>おたふく風邪</p>
-  <div>
   </div>
 </main>
+<%= render "babies/footer"%>

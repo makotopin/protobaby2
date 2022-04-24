@@ -1,39 +1,138 @@
-/* ヘッダー部分 ここから */
-.header {
-  background-color: thistle;
-  height: 70px;
+.show-wrapper {
+  height: 100%;
+  overflow-x: scroll;
+}
+
+/*----------------ここから上半分-----------------*/
+.s-baby-data {
+  height: 40%;
   display: flex;
-  justify-content: space-between;
-  font-family: cursive;
-  border-bottom: 2px solid lightgray;
+  justify-content: space-around;
 }
 
-.header-logo {
-  font-size: 40px;
-}
-
-.logo {
-  text-decoration: none;
-  color: powderblue;
-}
-
-.header-parts {
-  font-family: cursive;
-  font-size: 40px;
-}
-
-.header-part {
-  text-decoration: none;
-  color: gray;
-  padding: 0 30px;
-}
-
-.monthes {
+.s-baby-card {
+  height: 100%;
+  width: 30%;
   display: flex;
+  justify-content: space-around;
+}
+
+.s-baby-image {
+  display: flex;
+  align-items: center;
+}
+
+.s-image {
+  border-radius: 45%;
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+}
+
+.s-baby-info {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+
+.s-hospital {
+  height: 70%;
+  width: 25%;
+  position: relative;
+  margin: 2em 1em;
+  padding: 0.5em 1em;
+  border: solid 3px #efccff;
+  border-radius: 8px;
+}
+
+.s-hospital .box-title {
+  position: absolute;
+  display: inline-block;
+  top: -13px;
+  left: 10px;
+  padding: 0 9px;
+  line-height: 1;
+  font-size: 19px;
+  background: #FFF;
+  color: #e1b0f8;
+  font-weight: bold;
+}
+
+.s-hospital p {
+  height: 33%;
+  margin: 0; 
+  padding: 0;
+}
+
+.s-memo{
+  height: 70%;
+  width: 25%;
+  position: relative;
+  margin: 2em 1em;
+  padding: 0.5em 1em;
+  border: solid 3px #efccff;
+  border-radius: 8px;
+}
+
+.s-memo .box-title {
+  position: absolute;
+  display: inline-block;
+  top: -13px;
+  left: 10px;
+  padding: 0 9px;
+  line-height: 1;
+  font-size: 19px;
+  background: #FFF;
+  color: #e1b0f8;
+  font-weight: bold;
+}
+
+.s-memo p {
+  margin: 0; 
+  padding: 0;
+}
+
+/*----------------ここまで上半分-----------------*/
+
+/*----------------ここから下半分-----------------*/
+
+.s-table {
+  height: 60%;
+  width: 100%;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+table {
+  height: 100%;
+  width: 140%;
   text-align: center;
 }
 
-.month {
-  margin-left: 20px;
+th {
+  position: sticky;
+  top: 0;
+  left: 0;
+  margin-left: 5px;
 }
-/* ヘッダー部分 ここまで */
+
+.color1 {
+  background-color: #f6e2ff;
+}
+
+.color2 {
+  background-color: #FFF;
+}
+
+.fixed01 {
+  z-index: 10;
+}
+
+.fixed02 {
+  height: 38px;
+  z-index: 9;
+}
+
+td:hover {
+  font-size: larger;
+}

@@ -1,46 +1,61 @@
-/* ヘッダー部分 ここから */
-.header {
-  background-color: thistle;
-  height: 70px;
+.n-contents {
+  height: 100%;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.n-form {
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
+.baby-text {
+  height: 28px;
+}
+
+.input-birth-wrap {
   display: flex;
-  justify-content: space-between;
-  font-family: cursive;
-  border-bottom: 2px solid lightgray;
+  height: 28px
 }
 
-.header-logo {
-  font-size: 40px;
+.input-birth-wrap p {
+  margin-right: 20px;
 }
 
-.logo {
-  text-decoration: none;
-  color: powderblue;
-}
-
-.header-parts {
-  font-family: cursive;
-  font-size: 40px;
-}
-
-.header-part {
-  text-decoration: none;
-  color: gray;
-  padding: 0 30px;
-}
-
-.monthes {
+.n-button {
+  margin-top: 30px;
   display: flex;
-  text-align: center;
 }
 
-.month {
-  margin-left: 20px;
+.n-submit {
+  text-decoration: none;
+  border: none;
+  padding: 0.4em 2em 0.4em;
+  color: #ffffff;
+  border: #ffffff dashed 1px;
+  box-shadow: 0 0 0 0.2em #ff99cc;
+  border-radius: 2.5px;
+  background-color: #ff99cc;
 }
-/* ヘッダー部分 ここまで */
 
-/* メインここから */
-main {
-  height: calc(100vh - 130px);
-  font-family: Hannotate SC;
-  text-align: center;
+.n-submit:hover {
+  opacity: 0.8;
+}
+
+.n-link {
+  margin-left: 30px;
+  text-decoration: none;
+  text-decoration: none;
+  border: none;
+  padding: 0.4em 2em 0.4em;
+  color: #ffffff;
+  border: #ffffff dashed 1px;
+  box-shadow: 0 0 0 0.2em #99bbff;
+  border-radius: 2.5px;
+  background-color: #99bbff;
+}
+
+.n-link:hover {
+  opacity: 0.8;
+  color: #ffffff;
 }
