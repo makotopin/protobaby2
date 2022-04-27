@@ -1,26 +1,43 @@
-<h2>Log in</h2>
+<%= render "babies/header" %>
+<main class="main">
+<h2 class="log-in">ログイン</h2>
+<div class="registration-wrapper">
+    <div class="registration-form">
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.label :email, "メールアドレス" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"formtype" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.label :password, "パスワード" %><br />
+    <%= f.password_field :password, autocomplete: "current-password", class:"formtype" %>
   </div>
-
+  <%
+=begin %>
   <% if devise_mapping.rememberable? %>
     <div class="field">
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me %>
     </div>
   <% end %>
+<% 
+=end %>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "ログイン", class:"loginbtn" %>
   </div>
 <% end %>
 
+    </div>
+  </div>
+  <%
+=begin %>
 <%= render "devise/shared/links" %>
+<% 
+=end %>
+
+</main>
+
+<%= render "babies/footer"%>
