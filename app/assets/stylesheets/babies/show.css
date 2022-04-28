@@ -92,6 +92,10 @@
   padding: 0;
 }
 
+.mapurl {
+  text-decoration: none;
+}
+
 /*----------------ここまで上半分-----------------*/
 
 /*----------------ここから下半分-----------------*/
@@ -129,10 +133,11 @@ th {
 }
 
 .fixed02 {
-  height: 38px;
+  height: 32px;
   z-index: 9;
 }
 
 td:hover {
-  font-size: larger;
+  font-size: 26px;
 }
+

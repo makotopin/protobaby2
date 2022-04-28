@@ -14,17 +14,17 @@
       </div>
       <div class="s-hospital">
         <span class="box-title">〜病院情報〜</span>
-        <% if %>
-          <p>・ここに文章が入ります</p>
-          <p>・ここに文章が入ります</p>
-          <p><%= link_to "ここに地図のURLが載ります", "#", class:"" %></p>
-        <% else %>
-        <% end %>
+          <p>病院名　：<%= @hospital.hospitalname %></p>
+          <p>休診日　：<%= @hospital.week %></p>
+          <p>電話番号：<%= @hospital.phone %></p>
       </div>
+<%
+=begin
       <div class="s-memo">
         <span class="box-title">〜MEMO〜</span>
         <p>ここに文章が入ります</p>
       </div>
+=end %>
     </div>
     <div class="s-table">
       <table>

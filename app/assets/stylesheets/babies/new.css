@@ -59,3 +59,7 @@
   opacity: 0.8;
   color: #ffffff;
 }
+
+.formwrapper {
+  display: flex;
+}

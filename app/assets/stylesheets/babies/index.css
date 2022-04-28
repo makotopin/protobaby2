@@ -51,6 +51,8 @@
 
 .i-card-contents:hover {
   opacity: 0.8;
+  border: 2px solid #ff99cc;
+  transition: all 0.7s;
 }
 
 .i-baby-image {
@@ -88,6 +90,7 @@
 
 .i-edit-button:hover {
   opacity: 0.8;
+  transition: all 0.7s;
 }
 
 .i-edit {
@@ -97,6 +100,7 @@
 
 .i-edit:hover {
   color: #ffeef8;
+  transition: all 0.7s;
 }
 
 .i-not-login {
