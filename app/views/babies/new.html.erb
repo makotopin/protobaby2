@@ -6,6 +6,7 @@
         <h1>子どもの新規登録</h1>
       </div>
       <div class="n-form">
+        <%= form_with url: babies_path, local: true do |f| %>
           <%#<%= render 'error_messages', model: f.object %>
           <div class="formwrapper">
             <div class="babyinfo-wrapper">

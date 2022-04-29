@@ -11,6 +11,7 @@ class BabiesController < ApplicationController
 
   def create
     @baby = Baby.create(baby_params)
+    Hospital.create(hospital_params)
     if @baby.save
       redirect_to root_path
     else
@@ -21,15 +22,18 @@ class BabiesController < ApplicationController
   def show
     @baby = Baby.find(params[:id])
     @babybirth = @baby.birthday
+    @hospital = Hospital.where(baby_id: @baby).first
   end
 
   def edit
     @baby = Baby.find(params[:id])
+    @hospital = Hospital.where(baby_id: @baby).first
   end
 
   def update
     @baby = Baby.find(params[:id])
-    if @baby.update(baby_params)
+    @hospital = Hospital.where(baby_id: @baby).first
+    if @baby.update(baby_params) && @hospital.update(hospital_params)
       redirect_to root_path
     else
       render :edit
@@ -47,6 +51,10 @@ class BabiesController < ApplicationController
   private
 
   def baby_params
-    params.require(:baby).permit(:name, :gender_id, :birthday, :image).merge(user_id: current_user.id)
+    params.permit(:name, :gender_id, :birthday, :image).merge(user_id: current_user.id)
+  end
+
+  def hospital_params
+    params.permit(:hospitalname, :week, :phone, :mapurl).merge(baby_id: @baby.id)
   end
 end

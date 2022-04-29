@@ -2,6 +2,7 @@ class Baby < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :gender
   belongs_to :user
+  has_one :hospital, dependent: :destroy
   has_one_attached :image
 
   with_options presence: true do
