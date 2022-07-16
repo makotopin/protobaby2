@@ -21,8 +21,8 @@
 }
 
 .i-card {
-  width: 33vw;
-  height: 85%;
+  width: 40vw;
+  height: 90%;
   margin: 0 25px;
   flex-direction: column;
   border: 2px solid lightgray;
@@ -57,9 +57,10 @@
 
 .i-baby-image {
   border-radius: 45%;
-  width: 280px;
-  height: 280px;
+  width: 250px;
+  height: 250px;
   object-fit: cover;
+  margin-right: 4px;
 }
 
 .i-baby-info {
@@ -79,7 +80,8 @@
 .i-edit-button {
   font-size: 18px;
   display: inline-block;
-  padding: 0.4em 2em 0.4em;
+  padding: 0.2em 3em 0.2em;
+
   color: #ffffff;
   border: #ffffff dashed 1px;
   box-shadow: 0 0 0 0.2em #ff99cc;
