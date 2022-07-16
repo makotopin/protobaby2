@@ -61,3 +61,5 @@ gem 'active_hash'
 
 gem 'bootstrap', '~> 5.0.2'
 gem 'jquery-rails'
+
+gem "aws-sdk-s3", require: false
